@@ -1,0 +1,88 @@
+package jrJava.college;
+
+/**
+ *
+ * @author Shashin Gupta
+ * @category Education
+ * @see Solar Hacks
+ * 
+**/
+
+public class College_Data {
+
+	/**
+	 * All of the things that colleges look at when determining your admissions  
+	**/
+	
+	private int SAT;
+	private int ACT;
+	// private float GPA_unweighted; If we have time
+	private float GPA_weighted;
+	private short num_APS;
+	private boolean sat = true;
+	
+	/*
+	 * Used to tell the operating system whether or not the person is taking the SAT or ACT 
+	*/
+	
+	public boolean useSAT() {
+		return sat;
+	}
+	
+	/*
+	 * Constructor
+	 *  Collects all the data from the server
+	*/
+	
+	public College_Data(int SAT, int ACT, float GPA_weighted, short num_APS) {
+		if (SAT == -1) {
+			this.ACT = ACT;
+			sat = false;
+		}
+		
+		else {
+			if (SAT < -1 || SAT > 1600) System.out.println("Invalid SAT response"); 
+			else this.SAT = SAT;
+		}
+		
+		this.GPA_weighted = GPA_weighted;
+		
+		this.num_APS = num_APS;
+		
+	}
+
+	/*
+	 * SAT comparison to the average SAT scores of colleges
+	*/
+	
+	String[] SAT() {
+		return null; //Temporary as to not throw an exception
+	}
+	
+	/*
+	 * ACT comparison to the average ACT scores of colleges
+	*/
+	
+	String[] ACT() {
+		return null; //Temporary as to not throw an exception
+	}
+	
+
+	/*
+	 * GPA_weighted comparison to the average Weighted GPA scores of colleges
+	*/
+	
+	String[] by_GPA_weighted(String[] standardized_test) {
+		int possible_number;
+		return null; //Temporary as to not throw an exception
+	}
+
+	/*
+	 * num_APS comparison to the average number of AP courses taken on average
+	*/
+	
+	String[] num_APS(String[] by_GPA_weighted) {
+		return null; //Temporary as to not throw an exception
+	}
+	
+}
