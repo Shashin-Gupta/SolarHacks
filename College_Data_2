@@ -1,0 +1,58 @@
+package jrJava.college;
+
+/**
+ *
+ * @author Shashin Gupta
+ * @category Education
+ * @see Solar Hacks
+ * 
+**/
+
+public class College_Data {
+
+	private int SAT;
+	private int ACT;
+	// private float GPA_unweighted; If we have time
+	private float GPA_weighted;
+	private short num_APS;
+	private boolean sat = true;
+	
+	public boolean useSAT() {
+		return sat;
+	}
+	
+	public College_Data(int SAT, int ACT, float GPA_weighted, short num_APS) {
+		if (SAT == -1) {
+			this.ACT = ACT;
+			sat = false;
+		}
+		
+		else {
+			if (SAT < -1 || SAT > 1600) System.out.println("Invalid SAT response"); 
+			else this.SAT = SAT;
+		}
+		
+		this.GPA_weighted = GPA_weighted;
+		
+		this.num_APS = num_APS;
+		
+	}
+
+	String[] SAT() {
+		return null; //Temporary as to not throw an exception
+	}
+	
+	String[] ACT() {
+		return null; //Temporary as to not throw an exception
+	}
+	
+	String[] by_GPA_weighted(String[] standardized_test) {
+		int possible_number;
+		return null; //Temporary as to not throw an exception
+	}
+	
+	String[] num_APS(String[] by_GPA_weighted) {
+		return null; //Temporary as to not throw an exception
+	}
+	
+}
