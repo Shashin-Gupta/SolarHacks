@@ -1,0 +1,38 @@
+package jrJava.college;
+
+public class Coordinator {
+
+	public static void main(String args[]) {
+		Information info = new Information();
+		// name = info.getName();
+		
+		College_Data cd = new College_Data(info.getSAT(), info.getSAT(), info.getGPA_Weighted(), info.getNumberOfAPS());
+		String[] sat = cd.SAT();
+		for (int i = 0; i < sat.length; i++) {
+			System.out.println(sat[i] + " ");
+		}
+		
+		System.out.println();
+		
+		String[] act = cd.ACT();
+		for (int i = 0; i < act.length; i++) {
+			System.out.println(act[i] + " ");
+		}
+		
+		System.out.println();
+		
+		String[] gpa;
+		if (cd.sat) {
+			gpa = cd.by_GPA_weighted(sat);
+		}
+		else {
+			gpa = cd.by_GPA_weighted(act);
+		}
+		for (int i = 0; i < gpa.length; i++) {
+			if (gpa[i] == null) continue;
+			System.out.println(gpa[i] + " ");
+		}
+	
+	}
+	
+}
