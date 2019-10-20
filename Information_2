@@ -1,0 +1,92 @@
+package jrJava.college;
+
+import java.util.Scanner;
+
+public class Information {
+
+	private String name;
+	private int SAT, ACT;
+	private float GPA_weighted;
+	private short num_APS;
+	private String major;
+	
+	public Information() {
+		Scanner s = new Scanner(System.in);
+
+		System.out.println("What is your name? ");
+		name = s.next();
+		System.out.println();
+
+		System.out.println("Do you prefer ACT or SAT? ");
+		String temp = s.next();
+		System.out.println();
+		
+		if (temp.equals("ACT")) {
+			SAT = -1;
+			System.out.println("What is your ACT score? ");
+
+			try {
+				ACT = Integer.parseInt(s.next());
+			}
+			catch (Exception e) {
+				System.out.println("invalid entry");
+				return;
+			}
+			
+			System.out.println();
+		}
+		else {
+			System.out.println("What is your SAT score? ");
+			
+			try{
+				SAT = Integer.parseInt(s.next());
+			}
+			catch (Exception e) {
+				System.out.println("invalid entry");
+				return;
+			}
+			
+			System.out.println();
+		}
+		
+		System.out.println("What is your weighted GPA? ");
+		GPA_weighted = Float.parseFloat(s.next());
+		System.out.println();
+		
+		System.out.println("What is your Major of choice? ");
+		major = s.next();
+		System.out.println();
+		
+		System.out.println("How many AP's have you taken? ");
+		num_APS = Short.parseShort(s.next());
+		System.out.println();
+		
+		System.out.println("Thank you");
+		
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public int getSAT() {
+		return SAT;
+	}
+	
+	public int getACT() {
+		return ACT;
+	}
+	
+	public short getNumberOfAPS() {
+		return num_APS;
+	}
+
+	public float getGPA_Weighted() {
+		return GPA_weighted;
+	}
+	
+	public String getMajor() {
+		return major;
+	}
+	
+}
