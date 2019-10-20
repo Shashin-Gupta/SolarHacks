@@ -1,0 +1,194 @@
+package jrJava.college;
+
+/**
+ *
+ * @author Shashin Gupta
+ * @category Education
+ * @see Solar Hacks
+ * 
+**/
+
+public class College_Data {
+
+	/**
+	 * All of the things that colleges look at when determining your admissions  
+	**/
+	
+	private int SAT;
+	private int ACT;
+	// private float GPA_unweighted; If we have time
+	private float GPA_weighted;
+	private short num_APS;
+	private boolean sat = true;
+	
+	/*
+	 * Used to tell the operating system whether or not the person is taking the SAT or ACT 
+	*/
+	
+	public boolean useSAT() {
+		return sat;
+	}
+	
+	/*
+	 * Constructor
+	 *  Collects all the data from the server
+	*/
+	
+	public College_Data(int SAT, int ACT, float GPA_weighted, short num_APS) {
+		if (SAT == -1) {
+			this.ACT = ACT;
+			sat = false;
+		}
+		
+		else {
+			if (SAT < -1 || SAT > 1600) System.out.println("Invalid SAT response"); 
+			else this.SAT = SAT;
+		}
+		
+		this.GPA_weighted = GPA_weighted;
+		
+		this.num_APS = num_APS;
+		
+	}
+
+	/*
+	 * SAT comparison to the average SAT scores of colleges
+	*/
+	
+	String[] SAT() {
+		if (SAT >= 1500) {
+			String[] colleges = {"Amherst", "Barnard", "Boston U", "Bowdoin", "Brandeis", "Brown", "Bryn Mawr", "California Institute of Technology", 
+								"Carleton", "Carnegie Melon", "Case Western Reserve", "Claremont McKenna", "Colgate", "Columbia", "Cornell", "Creighton",
+								"Dartmouth", "Duke", "Elon", "Emory", "Georgetown", "Georgia Tech", "Grinell", "Hamilton", "Harvard", "Harvey Mudd",
+								"UC Berkley", "UCLA", "UCSF", "UC Santa Barbra", "Princeton", "MIT", "Stanford", "Yale", "Chicago", "UPENN", "John Hopkins",
+								"Vanderbilt", "Engin", "Rice"};
+			return colleges;
+		}
+		else if (SAT >= 1400) {
+			String[] colleges = {"Amherst", "Babson", "Banard", "Bates", "Binghamton", "Boston", "Boston U", "Bowdoin", "Brandeis", "Brigham", "Brown",
+								"Bryn", "Bucknell", "Cal Poly San Luis Obispo", "Carleton", "Carnegie Melon", "Case Western Reserve", "Centre", "Claremont", 
+								"Colgate", "New Jersey", "St. benedict", "Holy Cross", "William & Mary", "Colorado", "Colorado School of Mines", "Columbia",
+								"Connecticut", "Cornell", "Creighton", "Dartmouth", "Davidson", "Duke", "Emory", "Fordham", "Franklin and Marchall", "Furman",
+								"George Washington", "Georgetown", "Georgia Institute of Technology", "Gettysburg", "Grinell", "Hamilton", "Harvard", "Haveford",
+								"Hendrix", "UC Berkley", "UCLA", "UCSF", "UC Santa Barbra", "UC Irvine", "UC Davis", "UCSC", "UC Riverside", "Princeton", "Yale",
+								"Stanford", "Chicago", "UPENN", "John Hopkins", "Vanderbilt", "NYU", "Wake Forest", "Engin", "Brandeis", "Florida", "Leigh"};
+			return colleges;
+		}
+		else if (SAT >= 1300) {
+			String[] colleges = {"Agnes Scott", "Alleghany", "American", "Arizona State", "Auburn", "Augustun", "Austin", "Babson", "Bard", "Barnard",
+								"Bates", "Baylor", "Beloit", "Bennington", "Bentley", "Binghampton", "Boston", "Boston U", "Bowdoin", "Bryn Mawr", "Bucknell",
+								"Butler", "Cal Poly San Luis Obispo", "Carleton", "Case Western", "Centre", "Chapman", "Christopher Newport", "Claremont", "Clark",
+								"Clarkson", "Clemson", "Coe", "Colgate", "Charleston", "New Jersey", "Holy Cross", "William & Mary", "Colorado College", "Colorado School of Mines",
+								"Cornell", "CUNY", "Davidson", "Deninson", "DePaul", "DePauw", "Dickinson", "Drake", "Drew", "Drexel", "Duke", "Earlham", "Elon", "Embry-Riddle Aeronautical",
+								"Emerson", "Emory", "Fairfield", "Florida Institue of Technology", "Fordham", "Franklin and Marchall", "Furman", "Gearge Mason",
+								"George Washington", "Georgetown", "Georgia Institute of Technology", "Gettysburg", "Gonzaga", "Grinnell", "Gustavus Adolphus", 
+								"Hamilton", "Haverford", "Hendrix", "UC Berkley", "UCLA", "UC San Diego", "UCSF", "UC Santa Barbra", "UC Irvine", "UC Davis",
+								"UC Santa Cruz", "UC Irvine", "UC Davis", "UCSC", "UC Riverside", "NYU", "Wake Forest", "Engin", "Brandeis", "Texas", "Lehigh",
+								"Florida"};
+		
+			return colleges;
+		}
+		else if (SAT >= 1200) {
+			String[] colleges = {"Abilene", "Adelphi", "Agnes Scott", "Albion", "Berea", "Biola", "Birmingham-Southern", "Bradley", "CalPoly Ponoma",
+								"California Lutheran", "CSU Fresno", "CSU Fulleron", "CSU Long Beach", "CSU LA", "CSU Monterey Bay", "CSU Northridge",
+								"Carrol", "Coe", "Charleston", "Colorado State", "Concordia", "Cornell", "Drury", "Elmhurst", "Gallauduet", "Goshen",
+								"Goucher", "Hampden-Sydney", "Hampton", "Hanover", "UC Riverside", "Alleghenny", "Appalachian State", "Arizona State", 
+								"Auburn", "Augustana", "Austin", "Bard", "Baylor", "Beloit", "Berry", "Brigham Young", "Butler", "Centre", "Chapman",
+								"Christopher Newport", "Clarkson", "New Jersey", "Wooster", "Creighton", "DePauw", "Drake", "Drew", "Drexel", "Duquesene",
+								"Earlham", "Elon", "Emerson", "Fairfield", "Florida Institute of Technology", "George Mason", "Gonzaga", "Gustavus Adolphus", 
+								"Hendrix", "UC Irvine", "UC Davis", "UCSC", "Texas", "Purdue", "American", "Babson", "Bennington", "Bentley", "Bradeis", 
+								"Cal Poly San Luis Obispo", "Clark", "Clemson", "Holy Cross", "Colorado School of Mines", "Connecticuit", "CUNY", "Davidson",
+								"Davidson", "Denison", "FSU", "Fordham", "Franklin", "Furman", "George Washington", "Gettysburg", "UCLA", "UC San Diego", "UCSF", 
+								"UC Santa Barbra", "NYU", "Wake Forest", "Brandeis"};
+			return colleges;
+		}
+		else if (SAT >= 1100) {
+			String[] colleges = {"Abilene", "Adelphi", "Agnes Scott", "Albion", "Berea", "Biola", "Birmingham-Southern", "Bradley", "CalPoly Ponoma",
+								"California Lutheran", "CSU Fresno", "CSU Fulleron", "CSU Long Beach", "CSU LA", "CSU Monterey Bay", "CSU Northridge",
+								"Carrol", "Coe", "Charleston", "Colorado State", "Concordia", "Cornell", "Drury", "Elmhurst", "Gallauduet", "Goshen",
+								"Goucher", "Hampden-Sydney", "Hampton", "Hanover", "UC Riverside", "Alleghenny", "Appalachian State", "Arizona State", 
+								"Auburn", "Augustana", "Austin", "Bard", "Baylor", "Beloit", "Berry", "Brigham Young", "Butler", "Centre", "Chapman",
+								"Christopher Newport", "Clarkson", "New Jersey", "Wooster", "Creighton", "DePauw", "Drake", "Drew", "Drexel", "Duquesene",
+								"Earlham", "Elon", "Emerson", "Fairfield", "Florida Institute of Technology", "George Mason", "Gonzaga", "Gustavus Adolphus", 
+								"Hendrix", "UC Irvine", "UC Davis", "UCSC", "Texas", "Purdue"};
+			return colleges;
+		}
+		else {
+			String[] colleges = {"Abilene", "Adelphi", "Agnes Scott", "Albion", "Berea", "Biola", "Birmingham-Southern", "Bradley", "CalPoly Ponoma",
+								"California Lutheran", "CSU Fresno", "CSU Fulleron", "CSU Long Beach", "CSU LA", "CSU Monterey Bay", "CSU Northridge",
+								"Carrol", "Coe", "Charleston", "Colorado State", "Concordia", "Cornell", "Drury", "Elmhurst", "Gallauduet", "Goshen",
+								"Goucher", "Hampden-Sydney", "Hampton", "Hanover", "UC Riverside"};
+			return colleges;
+		}
+	}
+	
+	/*
+	 * ACT comparison to the average ACT scores of colleges
+	*/
+	
+	String[] ACT() {
+		if (ACT > 32) {
+			String[] colleges = {"Amherst", "Barnard", "Boston", "Boston U", "Bowdoin", "Brandeis", "Brown", "Bryn Marr", "California Institute of California",
+								"Carleton", "Carnegie Melon", "Case Western Reserve", "Claremont", "Cal Poly San Luis Obispo", "Colgate", "William & Mary", 
+								"Colorado", "Colorado of School of Mines", "Columbia", "Cornell", "Dartmouth", "Davidson", "Duke", "Emory", "Georgetown",
+								"Georgia Institute of Tech", "Grinnell", "Harvard", "Harvey", "Haverford", "UC Berkley", "UCLA", "UC San Diego", "Princeton",
+								"MIT", "Yale", "Stanford", "Chicago", "UPENN", "John Hopkins", "Vanderbilt", "NYU", "Michigan-Ann Arbor", "Rice", "Brandeis"};
+			return colleges;
+		}
+		else if (ACT > 27 && ACT <= 32) {
+			String[] colleges = {"Agnes Scott", "Allegheny", "American", "Arizona State", "Auburn", "Augustana", "Babson", "Amherst", "Bard", "Barnard",
+								"Bates", "Baylor", "Beloit", "Bennington", "Bentley", "Berry", "Binghamton", "Birmingham-​Southern", "Boston", "Boston U", "Bowdoin",
+								"Bradley", "Brandeis", "Brigham Young", "Brown", "Bryn Mawr", "Bucknell", "Butler", " Calpoly Ponoma", "Cal Poly San Luis Obispo",
+								"Carleton", "Carrol", "Case Western Reserve", "Centre", "Chapman", "Christopher Newport", "Claremont McKenna", "Clark", "Clarkson",
+								"Clemson", "Coe", "Colby", "Colgate", "Charleston", "New Jersey", "St.Benedict", "Holy Cross", "William and Mary", "Wooster", "Colorado",
+								"Colorado Shcool of Mines", "Colorado State", "Columbia", "Concordia", "Conneticuit", "Cornell", "Creighton", "Dartmouth", "Davidson", 
+								"Denison", "DePauw", "Dickinson", "Drake", "Drexel", "Duke", "Duquenese", "Earlham", "Elon", "Embry-Riddle Aeronautical", "Emerson",
+								"Emory", "Fairfield", "Florida Institute of Technology", "FSU", "Fordham", "Franklin and Marchall", "Furman", "George Mason", "Gerogeton",
+								"Georgia Tech", "Gettysburg", "Gonzaga", "Goucher", "Grinell", "Gustavus Adolphus", "Hamilton", "Haverford", "Hendrix", "UC Berkley", "UCLA",
+								"UCSD", "UCSB", "UC Irvine", "UC Davis", "UCSC", "Princeton", "Yale", "Stanford", "Unviersity of Chicago", "UPENN", "John Hopkins", 
+								"Vanderbilt", "NYU", "Wake Forest", "University of Michigan Ann-Arbor", "Rice", "Brandeis", "Texas", "Leigh", "Florida", "Purdue"};
+			return colleges;
+		}
+		else if (ACT > 20 && ACT <= 27) {
+			String[] colleges = {"Abilene Christian", "Adelphi", "Agnes", "Albion", "Allegheny", "Appalachian State", "Arizona State University",
+								"Auburn", "Augustana", "Austin", "Baldwin Wallace", "Beloit", "Berea", "Berry", "Biola", "Birmingham-​Southern",
+								"Bradley", "Butler", "Cal Poly, Ponoma", "California Lutherin", "CSU Fresno", "CSU Fullerton", "CSU Long Beach",
+								"CSU LA", "CSU Monterey Bay", "CSU Northridge", "Carrol", "Champan", "Christopher Newport", "Clarkson", "Coe",
+								"Charleston", "New Jersey", "St. Benedict", "Wooster", "Colorado State", "Concordia", "Cornell", "Creighton", "DePaul",
+								"DePauw", "Drake", "Drew", "Drexel", "Drury", "Duquesne", "Elmhurst College", "Elmhurst", "Elon", "Embry-Riddle Aeronautical",
+								"Emerson", "Fairfeild", "Florida Institute of Technology", "Gallaudet", "Geaorge Mason", "Gonzaga", "Goshen", "Goucher", 
+								"Gustavus Adolphus", "Hampden-Sydney", "Hampton", "Hanover", "Hendrix", "UC SF", "UC Irvine", "UC Davis", "UCSC",
+								"UC Riverside", "Purdue"};
+			return colleges;
+		}
+		else {
+			String[] colleges = {"CUNY", "CSU", "Agnes Scott", "Allegheny", "American", "Augustana", "Austin", "Baldwin", "Bard", "Bates",
+								"Beloit", "Bennington", "Birmingham-​Southern", "Bowdoin", "Brandeis", "Bryn Mawr", "Bucknell", "Carrol",
+								"Christopher Newport", "Clark", "Colby", "College of the Holy Cross", "Colorado", "Conneticuit", "Cornell",
+								"Creighton", "Denison", "DePaul", "DePauw", "Dickinson", "Drake", "Drew", "Drexel", "Duquesne", "Earlham",
+								"Embry-Riddle Aeronautical", "Emerson", "Fairfield", "Franklin and Marchall", "Furman", "George Mason", 
+								"George Washington", "Gettysburg", "Goucher", "Gustavus Adolphus", "Hampton", "Hanover"};
+			
+			return colleges;
+		}
+	}
+	
+
+	/*
+	 * GPA_weighted comparison to the average Weighted GPA scores of colleges
+	*/
+	
+	String[] by_GPA_weighted(String[] standardized_test) {
+
+		return null; //Temporary as to not throw an exception
+	}
+
+	/*
+	 * num_APS comparison to the average number of AP courses taken on average
+	*/
+	
+	String[] num_APS(String[] by_GPA_weighted) {
+		return null; //Temporary as to not throw an exception
+	}
+	
+}
